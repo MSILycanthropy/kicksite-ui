@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.out.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind+Vadodara:300,400,500,600,700&amp;subset=gujarati,latin-ext">
+  <script>
+    function toggleTheme() {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark')
+      } else {
+        document.body.classList.add('dark')
+      }
+    }
+  </script>
+</head>
+<body>
+  <button class="btn btn-primary" onclick="toggleTheme()">
+    click me
+  </button>
+</body>
+</html>

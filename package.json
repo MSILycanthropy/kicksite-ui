@@ -1,0 +1,67 @@
+{
+  "name": "kicksite-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "browserslist": [
+    "> 5%",
+    "Safari >= 12"
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.10.0",
+    "npm-watch": "^0.11.0",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0",
+    "postcss-mixins": "^9.0.2",
+    "postcss-nested": "^5.0.6",
+    "postcss-preset-env": "^7.4.2",
+    "postcss-safe-parser": "^6.0.0",
+    "postcss-simple-vars": "^6.0.3",
+    "postcss-sorting": "^7.0.1",
+    "prejss-cli": "^0.3.3",
+    "prejss-postcss-parser": "^0.3.2",
+    "stylelint": "^14.5.3",
+    "stylelint-config-standard": "^25.0.0"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  },
+  "watch": {
+    "dev": {
+      "patterns": [
+        "src",
+        "src/components",
+        "src/utilities",
+        "src/variants",
+        "example/index"
+      ],
+      "extensions": "js,css,html"
+    }
+  },
+  "scripts": {
+    "lint-css": "stylelint src/**/*.css",
+    "lint-js": "eslint src/**/*.js",
+    "lint": "yarn lint-css && yarn lint-js",
+
+    "base:prepare": "postcss src/base/*.css --base src --dir dist/",
+    "base:compile": "cat dist/base/*.css > dist/base.css",
+    "base:jssify": "prejss-cli dist/base.css -o dist/base.js -f commonjs",
+    "base:build": "yarn base:prepare && yarn base:compile && yarn base:jssify",
+
+    "utilities:prepare": "postcss src/utilities/*.css --base src --dir dist/",
+    "utilities:compile": "cat dist/utilities/*.css > dist/utilities.css",
+    "utilities:jssify": "prejss-cli dist/utilities.css -o dist/utilities.js -f commonjs",
+    "utilities:build": "yarn utilities:prepare && yarn utilities:compile && yarn utilities:jssify",
+
+    "components:prepare": "postcss src/components/*.css --base src --dir dist/",
+    "components:compile": "cat dist/components/*.css > dist/components.css",
+    "components:jssify": "prejss-cli dist/components.css -o dist/components.js -f commonjs",
+    "components:build": "yarn components:prepare && yarn components:compile && yarn components:jssify",
+
+    "build": "yarn base:build && yarn utilities:build && yarn components:build",
+    "build:example": "yarn postcss example/main.css -o example/main.out.css",
+    "dev": "yarn build && yarn build:example",
+    "watch": "npm-watch"
+  }
+}

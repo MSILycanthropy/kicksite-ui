@@ -1,0 +1,7 @@
+/* This is a temp style so that
+   things don't kerplode */
+.btn {
+  &-xs {
+    @apply h-4 w-4;
+  }
+}

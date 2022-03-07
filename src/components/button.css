@@ -1,0 +1,10 @@
+.btn {
+  @apply cursor-pointer tracking-widest;
+  @apply py-2 px-4;
+  @apply select-none whitespace-nowrap;
+  @apply text-content;
+
+  &-primary {
+    @apply bg-kicksite-yellow text-white;
+  }
+}
