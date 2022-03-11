@@ -4,12 +4,15 @@ module.exports = {
       parser: 'postcss-safe-parser',
       plugins: {
         'postcss-nested': {},
-        'postcss-preset-env': { features: { 'nesting-rules': false } },
         'postcss-sorting': {},
-        'postcss-mixins': {},
-        'postcss-simple-vars': {},
+        'postcss-simple-vars': {
+          variables: require('./themes/colors')
+        },
+        'postcss-functions': {
+          functions: require('./helpers/colors')
+        },
         tailwindcss: { config },
-        autoprefixer: {},
+        'postcss-preset-env': { features: { 'nesting-rules': false } },
       }
     }
   },

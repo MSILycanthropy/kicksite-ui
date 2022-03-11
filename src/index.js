@@ -1,11 +1,12 @@
 const components = require('../dist/components')
+const utilties = require('../dist/utilities')
 const base = require('../dist/base')
 const themes = require('./themes/themes')
 const themeUtils = require('./themes/utils')
 const colors = require('./themes/colors')
 const fontFamily = require('./themes/fonts')
 
-const main = ({ addBase, addComponents }) => {
+const main = ({ addBase, addUtilities, addComponents }) => {
   //
   // TODO: Need to talk with Joney about how we actually,
   // want to set the line heights for different font sizes
@@ -16,6 +17,7 @@ const main = ({ addBase, addComponents }) => {
   themeUtils.addThemes(addBase, themes)
 
   addBase(base)
+  addUtilities(utilties)
   addComponents(components)
 }
 
