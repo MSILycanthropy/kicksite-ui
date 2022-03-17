@@ -1,0 +1,8 @@
+.modal {
+  background: blue;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
