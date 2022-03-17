@@ -15,15 +15,39 @@
         document.body.classList.add('dark')
       }
     }
+
+    function openModal() {
+      document.getElementById('modal').classList.add('open')
+    }
   </script>
 </head>
 <body>
-  <button class="btn btn-primary">
+  <button class="btn btn-primary" onclick="openModal()">
     click me
   </button>
 
   <button class="btn btn-default">
     click me
   </button>
+
+  <button class="btn btn-success">
+    click me
+  </button>
+
+  <button class="btn btn-info">
+    click me
+  </button>
+
+  <button class="btn btn-warning">
+    click me
+  </button>
+
+  <button class="btn btn-danger">
+    click me
+  </button>
+
+  <div class="modal" id="modal">
+    STUFF
+  </div>
 </body>
 </html>

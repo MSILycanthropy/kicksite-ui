@@ -6,7 +6,7 @@ module.exports = {
         'postcss-nested': {},
         'postcss-sorting': {},
         'postcss-simple-vars': {
-          variables: require('./themes/colors')
+          variables: require('./themes/variables')
         },
         'postcss-functions': {
           functions: require('./helpers/colors')

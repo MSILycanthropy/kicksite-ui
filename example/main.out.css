@@ -384,61 +384,191 @@ html {
   padding-bottom: 0.5rem;
   font-size: 0.875rem;
   line-height: 1.25rem;
-  animation: button-pop 0.25s ease-out;
+  animation: button-pop 0.25s ease-in-out;
 }
-.btn:hover:active,
-  .btn:focus:active {
+.btn:hover:active, .btn:focus:active {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   animation: none;
-  transform: scale(0.95);
 }
 .btn-primary {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 169, 0, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
-  background: #F2A900;
 }
 .dark .btn-primary {
   --tw-text-opacity: 1;
   color: rgb(var(--color-tertiary));
 }
-.btn-primary:hover,
-    .btn-primary.focus-visible {
+.btn-primary:hover {
   background: #FFB50B;
 }
-.btn-primary:hover,
-    .btn-primary:focus-visible {
+.btn-primary.focus-visible {
   background: #FFB50B;
 }
-.btn-primary.disabled,
-    .btn-primary[disabled] {
-  background: #F2A900;
+.btn-primary:focus-visible {
+  background: #FFB50B;
+}
+.btn-primary:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 169, 0, var(--tw-bg-opacity));
+}
+.btn-primary.disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 169, 0, var(--tw-bg-opacity));
 }
 .btn-default {
   background: #E6E6E6;
 }
-.btn-default:hover,
-    .btn-default.focus-visible {
+.dark .btn-default {
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--color-primary));
+  --tw-text-opacity: 1;
+  color: rgb(var(--color-content));
+}
+.dark .btn-default:hover {
+  background: #363636;
+}
+.dark .btn-default.focus-visible {
+  background: #363636;
+}
+.dark .btn-default:focus-visible {
+  background: #363636;
+}
+.btn-default:hover {
   background: #CCCCCC;
 }
-.btn-default:hover,
-    .btn-default:focus-visible {
+.btn-default.focus-visible {
   background: #CCCCCC;
 }
-.btn-default.disabled,
-    .btn-default[disabled] {
+.btn-default:focus-visible {
+  background: #CCCCCC;
+}
+.btn-default:disabled {
   background: #E6E6E6;
+}
+.btn-default.disabled {
+  background: #E6E6E6;
+}
+.btn-success {
+  --tw-bg-opacity: 1;
+  background-color: rgba(92, 184, 92, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.btn-success:hover {
+  background: #4BAD4B;
+}
+.btn-success.focus-visible {
+  background: #4BAD4B;
+}
+.btn-success:focus-visible {
+  background: #4BAD4B;
+}
+.btn-success:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(92, 184, 92, var(--tw-bg-opacity));
+}
+.btn-success.disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(92, 184, 92, var(--tw-bg-opacity));
+}
+.btn-info {
+  --tw-bg-opacity: 1;
+  background-color: rgba(51, 122, 183, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.btn-info:hover {
+  background: #2E6EA5;
+}
+.btn-info.focus-visible {
+  background: #2E6EA5;
+}
+.btn-info:focus-visible {
+  background: #2E6EA5;
+}
+.btn-info:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(51, 122, 183, var(--tw-bg-opacity));
+}
+.btn-info.disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(51, 122, 183, var(--tw-bg-opacity));
+}
+.btn-warning {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 108, 43, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.btn-warning:hover {
+  background: #F05910;
+}
+.btn-warning.focus-visible {
+  background: #F05910;
+}
+.btn-warning:focus-visible {
+  background: #F05910;
+}
+.btn-warning:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 108, 43, var(--tw-bg-opacity));
+}
+.btn-warning.disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(242, 108, 43, var(--tw-bg-opacity));
+}
+.btn-danger {
+  --tw-bg-opacity: 1;
+  background-color: rgba(217, 67, 62, var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+.btn-danger:hover {
+  background: #D22F29;
+}
+.btn-danger.focus-visible {
+  background: #D22F29;
+}
+.btn-danger:focus-visible {
+  background: #D22F29;
+}
+.btn-danger:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(217, 67, 62, var(--tw-bg-opacity));
+}
+.btn-danger.disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgba(217, 67, 62, var(--tw-bg-opacity));
 }
 .btn.disabled, .btn[disabled] {
   cursor: not-allowed;
   opacity: 0.65;
 }
+.modal {
+  background: blue;
+  display: none;
+}
+.modal.open {
+  display: block;
+}
 @keyframes button-pop {
   0% {
-    transform: scale(0.95);
+    --tw-scale-x: .95;
+    --tw-scale-y: .95;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
   40% {
-    transform: scale(1.05);
+    --tw-scale-x: 1.02;
+    --tw-scale-y: 1.02;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
   100% {
-    transform: scale(1);
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 }

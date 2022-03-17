@@ -1,0 +1,31 @@
+.bg-white-darken-10 {
+  background: darken(white, 0.1);
+}
+
+.bg-white-darken-20 {
+  background: darken(white, 0.2);
+}
+
+.bg-kicksite-yellow-lighten-10 {
+  background: lighten($kicksite-yellow, 0.1);
+}
+
+.bg-success-darken-10 {
+  background: darken($success, 0.1);
+}
+
+.bg-info-darken-10 {
+  background: darken($info, 0.1);
+}
+
+.bg-warning-darken-10 {
+  background: darken($warning, 0.1);
+}
+
+.bg-danger-darken-10 {
+  background: darken($danger, 0.1);
+}
+
+.bg-primary-darken-15-dark {
+  background: darken($primary-dark, 0.15);
+}

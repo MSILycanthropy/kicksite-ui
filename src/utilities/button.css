@@ -15,3 +15,21 @@
     @apply px-5 py-4 text-lg;
   }
 }
+
+.animate-btn-pop {
+  animation: button-pop 0.25s ease-in-out;
+}
+
+@keyframes button-pop {
+  0% {
+    @apply scale-95;
+  }
+
+  40% {
+    @apply scale-[1.02];
+  }
+
+  100% {
+    @apply scale-100;
+  }
+}

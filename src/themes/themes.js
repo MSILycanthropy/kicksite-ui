@@ -12,5 +12,12 @@ module.exports = {
     tertiary: '#333333',
     quaternary: '#464646',
     content: '#D9D9D9'
+  },
+  shared: {
+    'kicksite-yellow': '#F2A900',
+    success: '#5CB85C',
+    info: '#337AB7',
+    warning: '#F26C2B',
+    danger: '#D9433E',
   }
 }

@@ -1,3 +1,20 @@
+const themes = require('./themes')
+
+// Really dumb way to do this beacuse array comparison
+// only returns true if the arrays are the same reference
+if (Object.keys(themes.dark).join('') !== Object.keys(themes.default).join('')) {
+  throw new Error('The dark and default themes must have the same colors')
+}
+
+const themeColors = Object.keys(themes.default).map(key => ({
+  [key]: withOpacity(key)
+})).reduce((obj, acc) => ({ ...obj, ...acc}), {})
+
+module.exports = {
+  ...themeColors,
+  ...themes.shared
+}
+
 function withOpacity(variable) {
   return ({ opacity }) => {
     if (opacity === undefined) {
@@ -6,22 +23,4 @@ function withOpacity(variable) {
 
     return `rgba(var(--color-${variable}), ${opacity})`
   }
-}
-
-//
-// TODO: add the actual colors and also
-//       add default colors, so the thought that I had for this
-//       is that essentially the ones that don't change
-//       (like primary, secondary, tertiary), just get set
-//       in addThemes, in the root but don't get changed
-//       by the theme? IDK if that would be confusing for
-//       people who have to maintain that or not
-//
-module.exports = {
-  primary: withOpacity('primary'),
-  secondary: withOpacity('secondary'),
-  tertiary: withOpacity('tertiary'),
-  quaternary: withOpacity('quaternary'),
-  content: withOpacity('content'),
-  'kicksite-yellow': '#F2A900'
 }

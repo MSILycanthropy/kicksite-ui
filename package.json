@@ -17,6 +17,7 @@
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.4.2",
     "postcss-safe-parser": "^6.0.0",
+    "postcss-selector-parser": "^6.0.9",
     "postcss-simple-vars": "^6.0.3",
     "postcss-sorting": "^7.0.1",
     "prejss-cli": "^0.3.3",
