@@ -3,6 +3,9 @@
   @apply select-none whitespace-nowrap;
   @apply text-content uppercase;
   @apply btn-md animate-btn-pop;
+  @apply outline-none;
+  @apply transition-all ease-in-out duration-300;
+  @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
 
   &:hover:active,
   &:focus:active {
@@ -46,10 +49,5 @@
     @apply text-white bg-danger;
     @apply hocus:bg-danger-darken-10;
     @apply disabled:bg-danger;
-  }
-
-  &.disabled,
-  &[disabled] {
-    @apply opacity-[0.65] cursor-not-allowed;
   }
 }

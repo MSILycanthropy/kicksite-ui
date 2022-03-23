@@ -1,0 +1,6 @@
+.input {
+  @apply bg-transparent p-1 w-full;
+  @apply border-b-2 border-secondary border-solid;
+  @apply focus:outline-none focus:border-kicksite-yellow;
+  @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
+}

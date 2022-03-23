@@ -3,7 +3,7 @@ module.exports = {
     return {
       parser: 'postcss-safe-parser',
       plugins: {
-        'postcss-nested': {},
+        'tailwindcss/nesting': 'postcss-nested',
         'postcss-sorting': {},
         'postcss-simple-vars': {
           variables: require('./themes/variables')

@@ -1,0 +1,17 @@
+.input {
+  &-warning {
+    @apply border-warning;
+  }
+
+  &-danger {
+    @apply border-danger;
+  }
+
+  &-success {
+    @apply border-success;
+  }
+
+  &-info {
+    @apply border-info;
+  }
+}

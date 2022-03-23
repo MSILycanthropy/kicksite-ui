@@ -16,17 +16,17 @@
       }
     }
 
-    function openModal() {
-      document.getElementById('modal').classList.add('open')
+    function toggleModal() {
+      document.getElementById('modal').classList.toggle('open')
     }
   </script>
 </head>
 <body>
-  <button class="btn btn-primary" onclick="openModal()">
+  <button class="btn btn-primary" onclick="toggleModal()">
     click me
   </button>
 
-  <button class="btn btn-default">
+  <button class="btn btn-default" onclick="toggleTheme()">
     click me
   </button>
 
@@ -47,7 +47,21 @@
   </button>
 
   <div class="modal" id="modal">
-    STUFF
+    <div class="modal-dialog">
+      <div class="modal-title">
+        HEADER
+      </div>
+      <div class="modal-content">
+        <input class="input" type="text">
+        <input class="checkbox" type="checkbox">
+      </div>
+      <div class="modal-footer">
+        <div class="btn-group">
+          <button class="btn btn-default" onclick="toggleModal()">CLOSE</button>
+          <button class="btn btn-primary" onclick="toggleTheme()">ACTION</button>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

@@ -1,8 +1,42 @@
 .modal {
-  background: blue;
-  display: none;
+  @apply fixed inset-0 invisible w-full h-full;
+  @apply opacity-0 bg-black/75 ;
+  @apply justify-center items-center;
+  @apply overflow-y-auto z-[999];
+  @apply transform transition-all duration-300;
+  @apply ease-in-out;
+  @apply grid grid-cols-1;
+
+  .modal-dialog {
+    @apply bg-tertiary my-8 mx-auto;
+    @apply w-11/12 max-w-xl shadow-xl;
+    @apply transform transition-all duration-300;
+    @apply translate-y-[-110%] ease-in-out;
+
+    .modal-title {
+      @apply flex items-center p-4;
+
+      .close {
+        @apply ml-auto;
+      }
+    }
+
+    .modal-content {
+      @apply p-4 border-y border-white-darken-10;
+      @apply dark:border-primary;
+    }
+
+    .modal-footer {
+      @apply flex justify-end p-4;
+    }
+  }
 
   &.open {
-    display: block;
+    @apply opacity-100;
+    @apply visible;
+
+    .modal-dialog {
+      @apply translate-y-0;
+    }
   }
 }

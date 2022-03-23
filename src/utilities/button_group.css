@@ -1,0 +1,7 @@
+.btn-group {
+  @apply flex gap-2;
+
+  &-sm {
+    @apply flex gap-px;
+  }
+}
