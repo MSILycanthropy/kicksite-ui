@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="main.out.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Hind+Vadodara:300,400,500,600,700&amp;subset=gujarati,latin-ext">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    button.btn-outline:hover i,
+    button.btn-outline:focus-visible i {
+      color: #fff;
+    }
+
+    .dark button.btn-outline:hover i,
+    .dark button.btn-outline:focus-visible i {
+      color: #000;
+    }
+
+    #search:focus ~ div {
+      transition: all 300ms ease-in-out;
+    }
+
+    #search:focus ~ div {
+      border-bottom-color: #F2A900;
+    }
+  </style>
+
+  <script>
+    function toggleTheme() {
+      if (document.body.classList.contains('dark')) {
+        document.body.classList.remove('dark')
+      } else {
+        document.body.classList.add('dark')
+      }
+    }
+
+    function toggleModal() {
+      document.getElementById('modal').classList.toggle('open')
+
+      if (document.body.classList.contains('overflow-hidden')) {
+        setTimeout(() => {
+          document.body.classList.remove('overflow-hidden')
+        }, 300)
+      } else {
+        document.body.classList.add('overflow-hidden')
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('#toggleTheme').addEventListener('click', toggleTheme)
+
+      document.querySelector('.tabs').addEventListener('click', (event) => {
+        document.querySelector('.tabs').querySelectorAll('.tab').forEach(tab => {
+          tab.classList.remove('active')
+        })
+
+        event.target.classList.add('active')
+      })
+    })
+  </script>
+</head>
+<body>
+  <header class="bg-primary p-[30px] min-h-[60px] shadow-md">
+    <h1 class="m-0 text-[56px] font-bold leading-[1.1]">Dashboard</h1>
+    <div class="absolute top-0 right-0 p-[10px] cursor-pointer hover:text-black dark:hover:text-white">
+      <div class="flex gap-4 items-center" >
+        <span class="flex items-center flex-row-reverse">
+          <input type="text" class="input inline" placeholder="Search" id="search">
+          <div class="border-b-2 border-solid border-secondary h-full leading-[2]"><i class="fas fa-search"></i></div>
+        </span>
+        <div class="flex items-center" id="toggleTheme">
+          <div class="bg-secondary rounded-full w-6 h-6 mr-2"></div>
+          <span>Ethan</span>
+          <i class="fas fa-chevron-down ml-1"></i>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-primary mt-2 mr-2 ml-[80%] sm:ml-0 sm:flex gap-2 items-center" onclick="toggleModal()">
+        <i class="fas fa-unlock text-kicksite-yellow-600 text-[1.2em] leading-[1.3]"></i>
+        <span class="sm:block hidden">Customize Dashboard</span>
+      </button>
+    </div>
+  </header>
+  <main class="p-[30px] flex flex-col-reverse sm:flex-row">
+    <section class="sm:basis-8/12">
+      <div class="tabs mb-3 shadow-md">
+        <div class="tab active">
+          My View
+        </div>
+        <div class="tab">
+          Memberships
+        </div>
+        <div class="tab">
+          Revenue
+        </div>
+        <div class="tab">
+          Alerts
+        </div>
+        <div class="tab">
+          Prospects
+        </div>
+      </div>
+      <div class="flex flex-col gap-8">
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">No Active</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Memberships</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">No Payments Scheduled</span>
+            <a class="cursor-pointer text-content opacity-50 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Past Due Invoices</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Absent</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Alerts</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary shadow-sm p-3">
+          <div class="flex justify-between items-center pb-4">
+            <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+              <span class="text-[32px] font-bold">Completed Recurring Billing</span>
+              <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+            </div>
+            <i class="fas fa-chevron-up fa-2xl cursor-pointer"></i>
+          </div>
+          <div class="flex justify-end w-full">
+            <button class="btn btn-default float-right">
+              Actions
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <table class="w-full text-left">
+            <thead class="border-t border-b-2 border-solid border-[#e6e6e6] dark:border-gray-400 text-xs leading-[1.5]">
+              <th class="uppercase font-normal tracking-widest p-[11px]">Name</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Contact</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Paid Through</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Recurring Billing</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Start Date</th>
+            </thead>
+            <tbody>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400 w-full">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Allen Family</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Jan 02, 2019</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px]">Dev 02, 2018</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Jamie Oats</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Sep 09, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px]">Aug 03, 2017</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">connor family</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Sep 30, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px]">Aug 31, 2021</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Chloe Bruce</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Nov 01, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px]">Oct 01, 2018</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">require CC</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Nov 19, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px]">Nov 19, 2021</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Absent</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Alerts</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Trials</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Prospects</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Appointments</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Prospects</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">No Shows</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Prospects</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Inactive Unpaid Billing</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Unpaid Students</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Expired</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Memberships</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Soon To Expire</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Memberships</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary shadow-sm p-3">
+          <div class="flex justify-between items-center pb-4">
+            <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+              <span class="text-[32px] font-bold">No Credit Card on File</span>
+              <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Revenue</a>
+            </div>
+            <i class="fas fa-chevron-up fa-2xl cursor-pointer"></i>
+          </div>
+          <div class="flex justify-end w-full">
+            <button class="btn btn-default float-right">
+              Actions
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+          <table class="w-full text-left">
+            <thead class="border-t border-b-2 border-solid border-[#e6e6e6] dark:border-gray-400 text-xs leading-[1.5]">
+              <th class="uppercase font-normal tracking-widest p-[11px]">Name</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Contact</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Paid Through</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Recurring Billing</th>
+              <th class="uppercase font-normal tracking-widest p-[11px]">Amount</th>
+            </thead>
+            <tbody>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400 w-full">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Mins Schwatzy</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Jan 02, 2019</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px] text-danger-600">$6.50</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Jamie Oats</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Sep 09, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px] text-danger-600">$1.14</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Joney Hurtmyeyes</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Sep 30, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px] text-danger-600">$20.00</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Fail Plz</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-[#e9e9e8] dark:text-secondary"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Nov 01, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px] text-danger-600">$20.00</td>
+              </tr>
+              <tr class="border-y border-solid border-[#e6e6e6] dark:border-gray-400">
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Kate Kicksite</td>
+                <td class="p-[10px]">
+                  <i class="fas fa-phone-flip text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-envelope text-kicksite-yellow-600 cursor-pointer"></i>
+                  <i class="fas fa-comment-sms text-[#e9e9e8] dark:text-secondary"></i>
+                </td>
+                <td class="p-[10px]">Nov 19, 2021</td>
+                <td class="p-[10px] text-kicksite-yellow-600 cursor-pointer">Recurring Billing</td>
+                <td class="p-[10px] text-danger-600">$100.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Frozen</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">Alerts</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+      </div>
+    </section>
+
+    <section class="sm:basis-4/12 sm:pl-[30px] pb-8">
+      <div class="flex flex-col gap-8">
+        <div class="flex justify-between items-center p-3">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Vitals</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">View</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Birthdays</span>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Calendar</span>
+            <a class="cursor-pointer text-kicksite-yellow-600 uppercase text-[24px] mt-[5px] font-semibold">View</a>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+        <div class="bg-primary flex justify-between items-center p-3 shadow-sm">
+          <div class="flex gap-4 flex-wrap leading-[1.1] items-center">
+            <span class="text-[32px] font-bold">Recent Activity</span>
+          </div>
+          <i class="fas fa-chevron-down fa-2xl cursor-pointer"></i>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-dialog">
+      <div class="modal-title">
+        <span class="text-[1.5em] font-bold">Add New Membership</span>
+
+        <button class="close" onclick="toggleModal()">
+          <i class="fas fa-times fa-lg hover:text-black dark:hover:text-white"></i>
+        </button>
+      </div>
+      <div class="modal-content">
+        <div class="mb-2">
+          <label class="label">type</label>
+          <div class="radio-btn-group-sm p-2">
+            <div class="radio-btn radio-btn-primary">
+              <input type="radio" name="type" id="individual" checked>
+              <label for="individual">individual</label>
+            </div>
+            <div class="radio-btn radio-btn-primary">
+              <input type="radio" name="type" id="trial">
+              <label for="trial">trial</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-8">
+          <label for="title" class="label required">Title</label>
+          <input type="text" id="title" class="input" placeholder="Type here">
+        </div>
+
+        <div class="mb-8">
+          <label for="description" class="label">description</label>
+          <input id="description" class="input" placeholder="Type here"></input>
+        </div>
+
+        <div class="mb-12">
+          <fieldset>
+            <legend class="label">Duration</legend>
+            <div class="p-2">
+              <div class="flex items-center gap-1">
+                <input class="radio radio-sm radio-primary" type="radio" name="membership" id="monthly" checked>
+                <label class="cursor-pointer" for="monthly">Limited</label>
+              </div>
+              <div class="flex items-center gap-1">
+                <input class="radio radio-sm radio-primary" type="radio" name="membership" id="annual">
+                <label class="cursor-pointer" for="annual">Attendances</label>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend class="label">Duration.. but checkboxes</legend>
+            <div class="flex flex-col gap-1 p-2">
+              <div class="flex items-center gap-1">
+                <input class="checkbox checkbox-sm checkbox-primary" type="checkbox" id="checkbox-1">
+                <label class="cursor-pointer" for="checkbox-1">Limited</label>
+              </div>
+              <div class="flex items-center gap-1">
+                <input class="checkbox checkbox-sm checkbox-primary" type="checkbox" id="checkbox-2">
+                <label class="cursor-pointer" for="checkbox-2">Attendances</label>
+              </div>
+          </fieldset>
+        </div>
+
+        <div class="mb-4">
+          <fieldset>
+            <legend class="label required">billing options</legend>
+            <div class="radio-btn-group-sm p-2">
+              <div class="radio-btn radio-btn-primary">
+                <input type="radio" name="billing-option" id="ot" checked>
+                <label for="ot">one time</label>
+              </div>
+              <div class="radio-btn radio-btn-primary">
+                <input type="radio" name="billing-option" id="rb">
+                <label for="rb">recurring billing</label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="flex gap-2 items-center mb-12">
+          <label for="price" class="font-semibold">Price</label>
+          $
+          <input type="text" id="price" class="input w-20 text-center" value="0.00">
+        </div>
+        <div>
+          <label for="programs" class="label">programs</label>
+          <input type="select" class="input py-2" placeholder="Select program(s) here">
+        </div>
+      </div>
+      <div class="modal-footer justify-between">
+        <div class="label required">
+          required
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-default" onclick="toggleModal()">CLOSE</button>
+          <button class="btn btn-primary" onclick="toggleTheme()">ACTION</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,17 +1,37 @@
 .input {
   &-warning {
-    @apply border-warning;
+    --input-border-color: theme('colors.warning.800');
   }
 
   &-danger {
-    @apply border-danger;
+    --input-border-color: theme('colors.danger.600');
   }
 
   &-success {
-    @apply border-success;
+    --input-border-color: theme('colors.success.400');
   }
 
   &-info {
-    @apply border-info;
+    --input-border-color: theme('colors.info.800');
+  }
+}
+
+.form-fields {
+  .input {
+    &-warning {
+      --input-border-color: theme('colors.warning.800');
+    }
+
+    &-danger {
+      --input-border-color: theme('colors.danger.600');
+    }
+
+    &-success {
+      --input-border-color: theme('colors.success.400');
+    }
+
+    &-info {
+      --input-border-color: theme('colors.info.800');
+    }
   }
 }

@@ -1,0 +1,35 @@
+.radio {
+  --radio-inset-size: 4px;
+  --radio-inset-color: theme('colors.primary');
+  --radio-bg: theme('colors.secondary');
+  --tw-ring-color: var(--radio-bg);
+
+  @apply appearance-none;
+  @apply rounded-full border border-secondary;
+  @apply w-6 h-6;
+  @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  @apply ring-offset-1 ring-offset-transparent;
+  @apply focus-visible:ring-2 focus-visible:outline-none;
+
+  &:checked {
+    background: var(--radio-bg);
+    animation: radio-checked 0.25s cubic-bezier(0.83, -0.01, 0.25, 0.98);
+
+    /* TODO: Need a better way to get the color for this */
+    box-shadow: 0 0 0 var(--radio-inset-size) var(--radio-inset-color) inset;
+  }
+}
+
+@keyframes radio-checked {
+  0% {
+    box-shadow: 0 0 0 12px theme('colors.tertiary') inset;
+  }
+
+  67% {
+    box-shadow: 0 0 0 2px theme('colors.tertiary') inset;
+  }
+
+  100% {
+    box-shadow: 0 0 0 var(--radio-inset-size) theme('colors.tertiary') inset;
+  }
+}

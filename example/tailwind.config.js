@@ -1,5 +1,5 @@
 module.exports = {
-  content: ['example/index.html'],
+  content: ['example/*.html'],
   plugins: [
     require('../src/index')
   ],

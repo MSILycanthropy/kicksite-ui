@@ -1,53 +1,31 @@
 .btn {
+  --btn-bg: transparent;
+  --btn-text-color: theme('colors.content');
+  --btn-hocus-bg: transparent;
+
+  color: var(--btn-text-color);
+  background: var(--btn-bg);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--btn-hocus-bg);
+  }
+
+  &:disabled {
+    background: var(--btn-bg);
+  }
+
   @apply cursor-pointer tracking-widest;
   @apply select-none whitespace-nowrap;
-  @apply text-content uppercase;
+  @apply uppercase;
   @apply btn-md animate-btn-pop;
   @apply outline-none;
   @apply transition-all ease-in-out duration-300;
   @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
+  @apply border border-solid border-transparent;
 
   &:hover:active,
   &:focus:active {
     @apply scale-95 animate-none;
-  }
-
-  &-primary {
-    @apply text-white bg-kicksite-yellow;
-    @apply dark:text-tertiary;
-    @apply hocus:bg-kicksite-yellow-lighten-10;
-    @apply disabled:bg-kicksite-yellow;
-  }
-
-  &-default {
-    @apply bg-white-darken-10;
-    @apply dark:text-content dark:bg-primary;
-    @apply dark:hocus:bg-primary-darken-15-dark;
-    @apply hocus:bg-white-darken-20;
-    @apply disabled:bg-white-darken-10;
-  }
-
-  &-success {
-    @apply text-white bg-success;
-    @apply hocus:bg-success-darken-10;
-    @apply disabled:bg-success;
-  }
-
-  &-info {
-    @apply text-white bg-info;
-    @apply hocus:bg-info-darken-10;
-    @apply disabled:bg-info;
-  }
-
-  &-warning {
-    @apply text-white bg-warning;
-    @apply hocus:bg-warning-darken-10;
-    @apply disabled:bg-warning;
-  }
-
-  &-danger {
-    @apply text-white bg-danger;
-    @apply hocus:bg-danger-darken-10;
-    @apply disabled:bg-danger;
   }
 }

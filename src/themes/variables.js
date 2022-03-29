@@ -1,3 +1,5 @@
+// TODO this should get deleted in favor of using the tailwind theme variable thingies yeah?
+
 const themeColors = require('./themes')
 
 const darkColors = Object.entries(themeColors.dark).map(entry => {
@@ -18,9 +20,7 @@ const defaultColors = Object.entries(themeColors.default).map(entry => {
   }
 }).reduce((obj, acc) => ({ ...obj, ...acc}), {})
 
-
 module.exports = {
   ...darkColors,
   ...defaultColors,
-  ...themeColors.shared,
 }

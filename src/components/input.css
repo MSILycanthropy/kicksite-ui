@@ -1,6 +1,37 @@
 .input {
+  --input-border-color: theme('colors.secondary');
+
   @apply bg-transparent p-1 w-full;
-  @apply border-b-2 border-secondary border-solid;
-  @apply focus:outline-none focus:border-kicksite-yellow;
+  @apply border-b-2 border-solid;
+  @apply focus:outline-none focus:border-kicksite-yellow-600;
   @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
+  @apply transition-colors duration-300 ease-in-out;
+
+  border-color: var(--input-border-color);
+
+  &::placeholder {
+    @apply text-content opacity-50;
+  }
+}
+
+.form-fields {
+  @apply flex flex-wrap;
+  @apply justify-between;
+  @apply gap-4;
+
+  .input {
+    --input-border-color: theme('colors.secondary');
+
+    @apply bg-transparent p-2 w-full;
+    @apply border-2 border-solid rounded;
+    @apply focus:outline-none focus:border-kicksite-yellow-600;
+    @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
+    @apply transition-colors duration-300 ease-in-out;
+
+    border-color: var(--input-border-color);
+
+    &::placeholder {
+      @apply text-content opacity-50;
+    }
+  }
 }

@@ -1,0 +1,34 @@
+.radio-btn {
+  &-primary {
+    --radio-btn-active-bg: theme('colors.kicksite-yellow.600');
+    --radio-btn-active-color: theme('colors.white');
+  }
+
+  &-success {
+    --radio-btn-active-bg: theme('colors.success.400');
+    --radio-btn-active-color: theme('colors.white');
+  }
+
+  &-info {
+    --radio-btn-active-bg: theme('colors.info.800');
+    --radio-btn-active-color: theme('colors.white');
+  }
+
+  &-warning {
+    --radio-btn-active-bg: theme('colors.warning.800');
+    --radio-btn-active-color: theme('colors.white');
+  }
+
+  &-danger {
+    --radio-btn-active-bg: theme('colors.danger.600');
+    --radio-btn-active-color: theme('colors.white');
+  }
+}
+
+.dark {
+  .radio-btn {
+    &-primary {
+      --radio-btn-active-color: theme('colors.tertiary');
+    }
+  }
+}

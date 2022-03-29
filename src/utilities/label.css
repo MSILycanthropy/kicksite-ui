@@ -1,0 +1,8 @@
+.required {
+  &::after {
+    content: '*';
+
+    @apply ml-1;
+    @apply text-warning-900;
+  }
+}

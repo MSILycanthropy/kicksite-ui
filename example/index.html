@@ -19,32 +19,62 @@
     function toggleModal() {
       document.getElementById('modal').classList.toggle('open')
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelector('.checkbox-info').indeterminate = true
+
+      document.querySelector('.tabs').addEventListener('click', (event) => {
+        document.querySelector('.tabs').querySelectorAll('.tab').forEach(tab => {
+          tab.classList.remove('active')
+        })
+
+        event.target.classList.add('active')
+      })
+    })
   </script>
 </head>
 <body>
-  <button class="btn btn-primary" onclick="toggleModal()">
-    click me
-  </button>
+  <div class="btn-group">
+    <button class="btn btn-primary" onclick="toggleModal()">
+      click me
+    </button>
+    <button class="btn btn-default" onclick="toggleTheme()">
+      click me
+    </button>
+    <a class="btn btn-success" href="./dashboard.html">
+      click me
+    </a>
+    <button class="btn btn-info">
+      click me
+    </button>
+    <button class="btn btn-warning">
+      click me
+    </button>
+    <button class="btn btn-danger">
+      click me
+    </button>
+  </div>
 
-  <button class="btn btn-default" onclick="toggleTheme()">
-    click me
-  </button>
-
-  <button class="btn btn-success">
-    click me
-  </button>
-
-  <button class="btn btn-info">
-    click me
-  </button>
-
-  <button class="btn btn-warning">
-    click me
-  </button>
-
-  <button class="btn btn-danger">
-    click me
-  </button>
+  <div class="btn-group pt-4">
+    <button class="btn btn-outline btn-primary" onclick="toggleModal()">
+      click me
+    </button>
+    <button class="btn btn-outline btn-default" onclick="toggleTheme()">
+      click me
+    </button>
+    <button class="btn btn-outline btn-success">
+      click me
+    </button>
+    <button class="btn btn-outline btn-info">
+      click me
+    </button>
+    <button class="btn btn-outline btn-warning">
+      click me
+    </button>
+    <button class="btn btn-outline btn-danger">
+      click me
+    </button>
+  </div>
 
   <div class="modal" id="modal">
     <div class="modal-dialog">
@@ -52,8 +82,89 @@
         HEADER
       </div>
       <div class="modal-content">
-        <input class="input" type="text">
-        <input class="checkbox" type="checkbox">
+        <div class="flex flex-col gap-2">
+          <div class="bg-tertiary p-4">
+            <div class="tabs">
+              <div class="tab active">
+                Tab1
+              </div>
+              <div class="tab">
+                Tab2
+              </div>
+              <div class="tab">
+                Tab3
+              </div>
+            </div>
+          </div>
+
+          <div id="radio-btn-group" class="radio-btn-group">
+            <div class="radio-btn radio-btn-primary">
+              <input type="radio" name="radio-btn-group" id="btn-1" checked>
+              <label for="btn-1">Button 1</label>
+            </div>
+            <div class="radio-btn radio-btn-success">
+              <input type="radio" name="radio-btn-group" id="btn-2">
+              <label for="btn-2">Button 2</label>
+            </div>
+            <div class="radio-btn radio-btn-info">
+              <input type="radio" name="radio-btn-group" id="btn-3">
+              <label for="btn-3">Button 3</label>
+            </div>
+          </div>
+
+          <div id="radio-btn-group-2" class="radio-btn-group-sm">
+            <div class="radio-btn radio-btn-warning">
+              <input type="radio" name="radio-btn-group-2" id="rbtn-1" checked>
+              <label for="rbtn-1">Button 1</label>
+            </div>
+            <div class="radio-btn radio-btn-danger">
+              <input type="radio" name="radio-btn-group-2" id="rbtn-2">
+              <label for="rbtn-2">Button 2</label>
+            </div>
+            <div class="radio-btn radio-btn-primary">
+              <input type="radio" name="radio-btn-group-2" id="rbtn-3">
+              <label for="rbtn-3">Button 3</label>
+            </div>
+          </div>
+
+          <div>
+            <label class="label">Label</label>
+            <input class="input" type="text" placeholder="Type here">
+          </div>
+          <input class="input input-success" type="text" placeholder="Type here">
+          <input class="input input-info" type="text" placeholder="Type here">
+          <input class="input input-warning" type="text" placeholder="Type here">
+          <input class="input input-danger" type="text" placeholder="Type here">
+          <div class="form-fields">
+            <div class="w-full">
+              <label class="label required">label</label>
+              <input class="input" type="text" placeholder="Type here">
+            </div>
+            <input class="input input-success" type="text" placeholder="Type here">
+            <input class="input input-info" type="text" placeholder="Type here">
+            <input class="input input-warning" type="text" placeholder="Type here">
+            <input class="input input-danger" type="text" placeholder="Type here">
+          </div>
+          <div>
+            <fieldset class="inline">
+              <input class="checkbox checkbox-primary checkbox-sm checkbox-round" type="checkbox">
+              <input class="checkbox checkbox-success checkbox-round" type="checkbox">
+              <input class="checkbox checkbox-info checkbox-lg checkbox-round" type="checkbox">
+              <input class="checkbox checkbox-primary checkbox-lg" type="checkbox">
+              <input class="checkbox checkbox-danger" type="checkbox">
+              <input class="checkbox checkbox-warning checkbox-sm" type="checkbox">
+            </fieldset>
+
+            <fieldset id="radio-group" class="inline">
+              <input class="radio radio-primary radio-sm" type="radio" name="radio-group">
+              <input class="radio radio-success" type="radio" name="radio-group">
+              <input class="radio radio-info radio-lg" type="radio" name="radio-group">
+              <input class="radio radio-primary radio-lg radio-square" type="radio" name="radio-group" checked>
+              <input class="radio radio-warning radio-square" type="radio" name="radio-group">
+              <input class="radio radio-danger radio-sm radio-square" type="radio" name="radio-group">
+            </fieldset>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <div class="btn-group">

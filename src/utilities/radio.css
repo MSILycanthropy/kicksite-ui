@@ -1,0 +1,41 @@
+.radio {
+  &-primary {
+    --radio-bg: theme('colors.kicksite-yellow.600');
+  }
+
+  &-success {
+    --radio-bg: theme('colors.success.400');
+  }
+
+  &-warning {
+    --radio-bg: theme('colors.warning.800');
+  }
+
+  &-danger {
+    --radio-bg: theme('colors.danger.600');
+  }
+
+  &-info {
+    --radio-bg: theme('colors.info.800');
+  }
+
+  &-sm {
+    --radio-inset-size: 3px;
+
+    @apply w-4 h-4;
+  }
+
+  &-lg {
+    --radio-inset-size: 5px;
+
+    @apply w-8 h-8;
+  }
+
+  &-square {
+    &.radio-sm {
+      @apply rounded-md;
+    }
+
+    @apply rounded-lg;
+  }
+}

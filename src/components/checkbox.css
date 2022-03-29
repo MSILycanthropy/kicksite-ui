@@ -1,17 +1,279 @@
 .checkbox {
-  appearance: none;
-  background-color: red;
-  width: 10px;
-  height: 10px;
+  --checkbox-bg: theme('colors.secondary');
+  --tw-ring-color: var(--checkbox-bg);
+
+  @apply appearance-none;
+  @apply border-secondary border rounded-lg;
+  @apply cursor-pointer;
+  @apply w-6 h-6;
+  @apply ring-offset-transparent;
+  @apply focus-visible:ring-2 focus-visible:outline-none;
 
   &:checked {
-    /* TODO: tweak this to work better for what we need */
-
+    animation: gradient 0.2s cubic-bezier(0.7, -0.01, 0.4, 1.02), checkbox-bounce 0.25s ease-in-out;
+    animation-delay: 0s, 0.2s;
     background-image:
-      linear-gradient(-45deg, transparent 65%, hsl(var(--chkbg)) 65.99%),
-      linear-gradient(-45deg, hsl(var(--chkbg)) 40%, transparent 40.99%),
-      linear-gradient(45deg, hsl(var(--chkbg)) 30%, hsl(var(--chkfg)) 30.99%, hsl(var(--chkfg)) 40%, transparent 40.99%),
-      linear-gradient(-45deg, hsl(var(--chkfg)) 50%, hsl(var(--chkbg)) 50.99%)
-      linear-gradient(45deg, transparent 75%, hsl(var(--chkbg)) 75.99%);
+      linear-gradient(-45deg, transparent 65%, var(--checkbox-bg) 65%),
+      linear-gradient(45deg, transparent 75%, var(--checkbox-bg) 75%),
+      linear-gradient(-45deg, var(--checkbox-bg) 40%, transparent 40%),
+      linear-gradient(45deg, var(--checkbox-bg) 30%, var(--checkbox-fg) 30%, var(--checkbox-fg) 40%, transparent 40%),
+      linear-gradient(-45deg, var(--checkbox-fg) 50%, var(--checkbox-bg) 50%);
+  }
+
+  &:indeterminate {
+    animation: gradient 0.2s cubic-bezier(0.7, -0.01, 0.4, 1.02), checkbox-bounce 0.25s ease-in-out;
+    animation-delay: 0s, 0.2s;
+    background-image:
+      linear-gradient(90deg, transparent 80%, var(--checkbox-bg) 80%),
+      linear-gradient(-90deg, transparent 80%, var(--checkbox-bg) 80%),
+      linear-gradient(
+        0deg,
+        var(--checkbox-bg) 43%,
+        var(--checkbox-fg) 43%,
+        var(--checkbox-fg) 57%,
+        var(--checkbox-bg) 57%
+      );
+  }
+
+  &:not(:checked) {
+    animation: gradient-reverse 0.2s cubic-bezier(0.7, -0.01, 0.4, 1.02);
+  }
+}
+
+@keyframes checkbox-bounce {
+  0% {
+    background-position-y: 5px;
+  }
+
+  75% {
+    background-position-y: -3px;
+  }
+
+  100% {
+    background-position-y: 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 0%,
+        transparent 0%,
+        transparent 100%
+      );
+  }
+
+  10% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 10%,
+        transparent 10%,
+        transparent 100%
+      );
+  }
+
+  20% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 20%,
+        transparent 20%,
+        transparent 100%
+      );
+  }
+
+  30% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 30%,
+        transparent 30%,
+        transparent 100%
+      );
+  }
+
+  40% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 40%,
+        transparent 40%,
+        transparent 100%
+      );
+  }
+
+  50% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 50%,
+        transparent 50%,
+        transparent 100%
+      );
+  }
+
+  60% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 60%,
+        transparent 60%,
+        transparent 100%
+      );
+  }
+
+  70% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 70%,
+        transparent 70%,
+        transparent 100%
+      );
+  }
+
+  80% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 80%,
+        transparent 80%,
+        transparent 100%
+      );
+  }
+
+  90% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 90%,
+        transparent 90%,
+        transparent 100%
+      );
+  }
+
+  100% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 100%,
+        transparent 100%,
+        transparent 100%
+      );
+  }
+}
+
+@keyframes gradient-reverse {
+  0% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 100%,
+        transparent 100%,
+        transparent 100%
+      );
+  }
+
+  10% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 90%,
+        transparent 90%,
+        transparent 100%
+      );
+  }
+
+  20% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 80%,
+        transparent 80%,
+        transparent 100%
+      );
+  }
+
+  30% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 70%,
+        transparent 70%,
+        transparent 100%
+      );
+  }
+
+  40% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 60%,
+        transparent 60%,
+        transparent 100%
+      );
+  }
+
+  50% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 50%,
+        transparent 50%,
+        transparent 100%
+      );
+  }
+
+  60% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 40%,
+        transparent 40%,
+        transparent 100%
+      );
+  }
+
+  70% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 30%,
+        transparent 30%,
+        transparent 100%
+      );
+  }
+
+  80% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 20%,
+        transparent 20%,
+        transparent 100%
+      );
+  }
+
+  90% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 10%,
+        transparent 10%,
+        transparent 100%
+      );
+  }
+
+  100% {
+    background:
+      radial-gradient(
+        circle at center,
+        var(--checkbox-bg) 0%,
+        transparent 0%,
+        transparent 100%
+      );
   }
 }

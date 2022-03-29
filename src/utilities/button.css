@@ -14,6 +14,74 @@
   &-lg {
     @apply px-5 py-4 text-lg;
   }
+
+  &-primary {
+    --btn-bg: theme('colors.kicksite-yellow.600');
+    --btn-text-color: theme('colors.white');
+    --btn-hocus-bg: theme('colors.kicksite-yellow.500');
+  }
+
+  /* TODO: get these to not be color literals */
+  &-default {
+    --btn-bg: #e6e6e6;
+    --btn-text-color: theme('colors.content');
+    --btn-hocus-bg: #ccc;
+  }
+
+  &-success {
+    --btn-bg: theme('colors.success.400');
+    --btn-text-color: theme('colors.white');
+    --btn-hocus-bg: theme('colors.success.500');
+  }
+
+  &-info {
+    --btn-bg: theme('colors.info.800');
+    --btn-text-color: theme('colors.white');
+    --btn-hocus-bg: theme('colors.info.900');
+  }
+
+  &-warning {
+    --btn-bg: theme('colors.warning.800');
+    --btn-text-color: theme('colors.white');
+    --btn-hocus-bg: theme('colors.warning.900');
+  }
+
+  &-danger {
+    --btn-bg: theme('colors.danger.600');
+    --btn-text-color: theme('colors.white');
+    --btn-hocus-bg: theme('colors.danger.700');
+  }
+
+  &-outline {
+    @apply text-content;
+    @apply bg-transparent;
+    @apply border border-solid;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--btn-bg);
+      color: var(--btn-text-color);
+    }
+
+    border-color: var(--btn-bg);
+  }
+
+  &-ghost {
+    @apply bg-transparent;
+  }
+}
+
+.dark {
+  .btn {
+    &-primary {
+      --btn-text-color: theme('colors.tertiary');
+    }
+
+    &-default {
+      --btn-bg: theme('colors.primary');
+      --btn-hocus-bg: #1a1a1a;
+    }
+  }
 }
 
 .animate-btn-pop {

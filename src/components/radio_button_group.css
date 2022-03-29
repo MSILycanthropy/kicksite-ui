@@ -1,0 +1,49 @@
+.radio-btn {
+  --radio-btn-bg: theme('colors.tertiary');
+  --radio-btn-active-bg: theme('colors.tertiary');
+  --radio-btn-active-color: theme('colors.white');
+
+  @apply flex;
+
+  label {
+    @apply cursor-pointer tracking-widest;
+    @apply select-none whitespace-nowrap;
+    @apply text-content uppercase;
+    @apply btn-md animate-btn-pop;
+    @apply outline-none;
+    @apply transition-all ease-in-out duration-300;
+    @apply disabled:opacity-[0.65] disabled:cursor-not-allowed;
+
+    background: var(--radio-btn-bg);
+  }
+
+  :checked ~ label {
+    background: var(--radio-btn-active-bg);
+    color: var(--radio-btn-active-color);
+  }
+
+  input:hover:active ~ label,
+  input:focus:active ~ label {
+    @apply scale-95 animate-none;
+  }
+
+  input {
+    @apply appearance-none;
+  }
+}
+
+.radio-btn-group {
+  @apply btn-group;
+
+  /* TODO: Maybe put this in a utility, but it can't use apply because the class won't be there yet */
+  &-sm {
+    @apply btn-group-sm;
+
+    .radio-btn {
+      /* stylelint-disable-next-line no-descending-specificity */
+      label {
+        @apply btn-sm;
+      }
+    }
+  }
+}

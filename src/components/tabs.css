@@ -1,0 +1,33 @@
+.tabs {
+  /* TODO: The other tabs */
+
+  --tabs-bg: theme('colors.primary');
+  --tabs-bg-active: theme('colors.kicksite-yellow.600');
+
+  background: var(--tabs-bg);
+
+  @apply flex rounded-3xl flex-col;
+  @apply sm:flex-row sm:rounded-full sm:justify-around sm:items-center !important;
+
+  .tab {
+    @apply sm:first:rounded-l-full sm:last:rounded-r-full !important;
+    @apply first:rounded-t-3xl last:rounded-b-3xl;
+    @apply uppercase cursor-pointer select-none tracking-widest;
+    @apply px-4 py-[0.6em] text-center;
+    @apply animate-btn-pop;
+    @apply flex-1 whitespace-nowrap;
+
+    &:hover:active,
+    &:focus:active {
+      @apply scale-95 animate-none;
+    }
+
+    &.active {
+      background: var(--tabs-bg-active);
+
+      @apply text-primary;
+      @apply hover:text-content;
+      @apply transition-all duration-300 ease-in-out;
+    }
+  }
+}

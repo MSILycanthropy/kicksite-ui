@@ -1,0 +1,39 @@
+.checkbox {
+  &-primary {
+    --checkbox-bg: theme('colors.kicksite-yellow.600');
+    --checkbox-fg: white;
+  }
+
+  &-success {
+    --checkbox-bg: theme('colors.success.400');
+    --checkbox-fg: white;
+  }
+
+  &-danger {
+    --checkbox-bg: theme('colors.danger.600');
+    --checkbox-fg: white;
+  }
+
+  &-warning {
+    --checkbox-bg: theme('colors.warning.800');
+    --checkbox-fg: white;
+  }
+
+  &-info {
+    --checkbox-bg: theme('colors.info.800');
+    --checkbox-fg: white;
+  }
+
+  &-sm {
+    @apply w-4 h-4;
+    @apply rounded-md;
+  }
+
+  &-lg {
+    @apply w-8 h-8;
+  }
+
+  &-round {
+    @apply rounded-full;
+  }
+}

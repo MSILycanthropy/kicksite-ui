@@ -58,7 +58,8 @@
     "components:jssify": "prejss-cli dist/components.css -o dist/components.js -f commonjs",
     "components:build": "yarn components:prepare && yarn components:compile && yarn components:jssify",
     "build": "yarn base:build && yarn utilities:build && yarn components:build",
-    "build:example": "yarn postcss example/main.css -o example/main.out.css",
+    "build:example": "rm -rf example/main.out.css; yarn postcss example/main.css -o example/main.out.css",
+    "build:full": "yarn build && yarn build:example",
     "dev": "yarn build && yarn build:example",
     "watch": "npm-watch"
   }
