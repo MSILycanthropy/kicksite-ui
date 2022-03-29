@@ -33,7 +33,11 @@
 }
 
 .modal-content {
-  @apply p-4 border-y border-white-darken-10;
+  @apply p-4 border-y;
+
+  /* TODO: No more color literal here  */
+  border: 1px solid #e6e6e6;
+
   @apply dark:border-primary;
 }
 

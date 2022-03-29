@@ -3,7 +3,7 @@
   "rules": {
     "string-quotes": "single",
     "function-no-unknown": [true, {
-      "ignoreFunctions": ["darken", "lighten", "alpha", "theme"]
+      "ignoreFunctions": ["theme"]
     }]
   }
 }

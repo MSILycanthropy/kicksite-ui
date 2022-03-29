@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "browserslist": [
-    "> 5%",
-    "Safari >= 12"
+    "last 2 versions",
+    "ios >= 11"
   ],
   "devDependencies": {
     "autoprefixer": "^10.4.2",
@@ -13,15 +13,10 @@
     "npm-watch": "^0.11.0",
     "postcss": "^8.4.7",
     "postcss-cli": "^9.1.0",
-    "postcss-functions": "^4.0.2",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.4.2",
-    "postcss-safe-parser": "^6.0.0",
-    "postcss-selector-parser": "^6.0.9",
-    "postcss-simple-vars": "^6.0.3",
     "postcss-sorting": "^7.0.1",
     "prejss-cli": "^0.3.3",
-    "prejss-postcss-parser": "^0.3.2",
     "stylelint": "^14.5.3",
     "stylelint-config-standard": "^25.0.0"
   },
